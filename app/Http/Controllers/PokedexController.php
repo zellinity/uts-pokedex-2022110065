@@ -10,13 +10,13 @@ class PokedexController extends Controller
 
     public function __invoke()
     {
-        $pokemon = Pokemon::paginate(9);
+        $pokemons = Pokemon::paginate(9);
 
-        return view('pokedex', compact('pokemon'));
+        return view('pokedex', compact('pokemons'));
     }
     public function index()
     {
-        $pokemon = Pokemon::paginate(9);
-        return view('pokedex', compact('pokemon'));
+        $pokemons = Pokemon::paginate(9);
+        return view('pokedex', compact('pokemons'));
     }
 }

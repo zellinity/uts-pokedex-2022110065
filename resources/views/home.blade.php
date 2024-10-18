@@ -1,6 +1,6 @@
 @section('content')
 <div class="container mt-5">
-    <h2 class="mb-4 text-center">Pokedex Card</h2>
+    <h2 class="mb-4 text-center">Pokedex</h2>
     <div class="row">
         @forelse ($pokemons as $pokemon)
             <div class="col-md-4 mb-4">

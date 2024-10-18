@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pokemon extends Model
 {
     use HasFactory;
-    protected $table = 'pokemon';
+    protected $table = 'pokemons';
     protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'char';

@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $pokemon = Pokemon::orderBy('id', 'asc')->paginate(9);
-        return view('pokedex', compact('pokemon'));
+        $pokemons = Pokemon::orderBy('id', 'asc')->paginate(9);
+        return view('pokedex', compact('pokemons'));
     }
 }

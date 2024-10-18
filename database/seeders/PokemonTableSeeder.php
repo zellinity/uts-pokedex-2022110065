@@ -15,9 +15,9 @@ class PokemonTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pokemon')->delete();
+        DB::table('pokemons')->delete();
 
-        DB::table('pokemon')->insert(array(
+        DB::table('pokemons')->insert(array(
             0 =>
             array (
                 'name' => 'Bulbasaur',

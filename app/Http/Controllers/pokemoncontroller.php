@@ -21,8 +21,8 @@ class PokemonController extends Controller
     public function index()
     {
 
-        $pokemon = Pokemon::orderBy('id', 'asc')->paginate(20);
-        return view('pokemon.index', compact('pokemon'));
+        $pokemons = Pokemon::orderBy('id', 'asc')->paginate(20);
+        return view('pokemon.index', compact('pokemons'));
 
 
     }
@@ -54,7 +54,7 @@ class PokemonController extends Controller
             'photo' => 'nullable|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
         ]);
 
-        $lastPokemon = DB::table('pokemon')->orderBy('id', 'desc')->first();
+        $lastPokemon = DB::table('pokemons')->orderBy('id', 'desc')->first();
         $lastId = $lastPokemon ? intval($lastPokemon->id) : 0;
         $newId = str_pad($lastId + 1, 4, '0', STR_PAD_LEFT);
 

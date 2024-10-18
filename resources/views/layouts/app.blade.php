@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.', 'Pokemon | Pokedex 2022110065') }}</title>
+    <title>Pokemon | Pokedex</title>
     <link rel="icon" href="{{ asset('storage/favicon.ico') }}" type="image/x-icon">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -20,11 +20,54 @@
     <style>
         body {
             background-image: url("storage/background.png");
-            background-size: 100%;
+            background-size: cover; /* Change to cover for better scaling */
             background-repeat: no-repeat;
             background-position: center center;
             background-color: white;
+        }
 
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+            backdrop-filter: blur(10px); /* Blurring effect */
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #007bff; /* Bootstrap primary color */
+            transition: color 0.3s; /* Smooth color transition */
+            font-size: 1.5rem; /* Larger font size */
+        }
+
+        .navbar-brand:hover {
+            color: #0056b3; /* Darker shade on hover */
+        }
+
+        .nav-link {
+            color: #6c757d; /* Bootstrap secondary color */
+            transition: color 0.3s, background-color 0.3s; /* Smooth color transition */
+            padding: 0.5rem 1rem; /* Adding padding for a button-like appearance */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .nav-link:hover {
+            color: white; /* Change text color on hover */
+            background-color: #007bff; /* Bootstrap primary color on hover */
+        }
+
+        .dropdown-menu {
+            background-color: #f8f9fa; /* Light background for dropdown */
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+        }
+
+        .dropdown-item:hover {
+            background-color: #007bff; /* Highlight dropdown item on hover */
+            color: white; /* Change text color */
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem; /* Smaller font size on mobile */
+            }
         }
     </style>
 </head>
@@ -33,8 +76,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand ms-2" href="{{ route('pokemon.index') }}">
-                    Pokemon | Pokedex Home
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    Pokedex Home 
+                </a>
+                <a class="navbar-brand" href="{{ route('pokemon.index') }}">
+                    Pokedex List
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -45,7 +91,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <!-- Additional links can be added here -->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
