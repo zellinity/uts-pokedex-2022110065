@@ -5,19 +5,22 @@
         <div class="row">
             @forelse ($pokemons as $pokemon)
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm rounded-3 hover-card">
+                    <div class="card h-100 shadow-lg rounded-lg hover-card">
                         @if ($pokemon->photo)
                             <div class="card-image">
-                                <img src="{{ asset('storage/' . $pokemon->photo) }}" class="card-img-top" alt="{{ $pokemon->name }}">
+                                <img src="{{ asset('storage/' . $pokemon->photo) }}" class="card-img-top"
+                                    alt="{{ $pokemon->name }}">
                                 <div class="card-overlay d-flex justify-content-between align-items-center p-2">
-                                    <span class="badge bg-primary">#{{ str_pad($pokemon->id, 4, '0', STR_PAD_LEFT) }}</span>
-                                    <span class="badge bg-warning text-dark">{{ $pokemon->primary_type }}</span>
+                                    <span
+                                        class="badge badge-custom">#{{ str_pad($pokemon->id, 4, '0', STR_PAD_LEFT) }}</span>
+                                    <span class="badge badge-type">{{ $pokemon->primary_type }}</span>
                                 </div>
                             </div>
                         @endif
                         <div class="card-body text-center">
                             <h5 class="card-title">
-                                <a href="{{ route('pokemon.show', $pokemon->id) }}" class="text-decoration-none text-dark">{{ $pokemon->name }}</a>
+                                <a href="{{ route('pokemon.show', $pokemon->id) }}"
+                                    class="text-decoration-none">{{ $pokemon->name }}</a>
                             </h5>
                         </div>
                     </div>
@@ -36,25 +39,37 @@
 
     <style>
         body {
-            background-color: #f0f8ff;
+            background-color: #e3f2fd;
             font-family: 'Arial', sans-serif;
         }
 
         .hover-card {
             transition: transform 0.3s, box-shadow 0.3s;
             border: 2px solid transparent;
+            background: linear-gradient(145deg, #ffffff, #e3f2fd);
+            border-radius: 20px;
         }
 
         .hover-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-            border: 2px solid #007bff;
+            transform: scale(1.07);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border: 2px solid #1e88e5;
         }
 
         .card-image {
             position: relative;
             overflow: hidden;
-            border-radius: 10px 10px 0 0;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .card-img-top {
+            border-radius: 20px 20px 0 0;
+            transition: transform 0.4s ease-in-out, filter 0.3s;
+        }
+
+        .hover-card:hover .card-img-top {
+            transform: scale(1.05);
+            filter: brightness(1.2);
         }
 
         .card-overlay {
@@ -62,42 +77,52 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
             color: white;
-            border-radius: 0 0 10px 10px;
+            border-radius: 0 0 20px 20px;
             padding: 10px;
-            transition: background 0.3s;
+            transition: background 0.4s;
         }
 
-        .card-overlay:hover {
-            background: rgba(0, 0, 0, 0.9);
+        .hover-card:hover .card-overlay {
+            background: rgba(0, 0, 0, 0.85);
         }
 
         .card-body {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 0 0 10px 10px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 0 0 20px 20px;
             padding: 1.5rem;
-            color: #fff;
         }
 
         .card-title {
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
             transition: color 0.3s;
         }
 
         .card-title a {
-            color: #fff;
+            color: #0d47a1;
         }
 
         .card-title a:hover {
-            color: #007bff;
+            color: #1976d2;
         }
 
         .badge {
-            font-size: 0.9rem;
-            padding: 0.5rem;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+        }
+
+        .badge-custom {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        .badge-type {
+            background-color: #ffca28;
+            color: #0d47a1;
         }
 
         @media (max-width: 768px) {
@@ -106,7 +131,7 @@
             }
 
             .badge {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
         }
     </style>

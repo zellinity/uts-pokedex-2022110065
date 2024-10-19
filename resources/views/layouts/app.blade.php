@@ -5,68 +5,65 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Pokemon | Pokedex</title>
     <link rel="icon" href="{{ asset('storage/favicon.ico') }}" type="image/x-icon">
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
         body {
             background-image: url("storage/background.png");
-            background-size: cover; /* Change to cover for better scaling */
+            background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
             background-color: white;
         }
 
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
-            backdrop-filter: blur(10px); /* Blurring effect */
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
         }
 
         .navbar-brand {
             font-weight: bold;
-            color: #007bff; /* Bootstrap primary color */
-            transition: color 0.3s; /* Smooth color transition */
-            font-size: 1.5rem; /* Larger font size */
+            color: #007bff;
+            transition: color 0.3s;
+            font-size: 1.5rem;
         }
 
         .navbar-brand:hover {
-            color: #0056b3; /* Darker shade on hover */
+            color: #0056b3;
         }
 
         .nav-link {
-            color: #6c757d; /* Bootstrap secondary color */
-            transition: color 0.3s, background-color 0.3s; /* Smooth color transition */
-            padding: 0.5rem 1rem; /* Adding padding for a button-like appearance */
-            border-radius: 5px; /* Rounded corners */
+            color: #6c757d;
+            transition: color 0.3s, background-color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
         }
 
         .nav-link:hover {
-            color: white; /* Change text color on hover */
-            background-color: #007bff; /* Bootstrap primary color on hover */
+            color: white;
+            background-color: #007bff;
         }
 
         .dropdown-menu {
-            background-color: #f8f9fa; /* Light background for dropdown */
-            border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+            background-color: #f8f9fa;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .dropdown-item:hover {
-            background-color: #007bff; /* Highlight dropdown item on hover */
-            color: white; /* Change text color */
+            background-color: #007bff;
+            color: white;
         }
 
         @media (max-width: 768px) {
             .navbar-brand {
-                font-size: 1.2rem; /* Smaller font size on mobile */
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -77,7 +74,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Pokedex Home 
+                    Pokedex Home
                 </a>
                 <a class="navbar-brand" href="{{ route('pokemon.index') }}">
                     Pokedex List
@@ -89,14 +86,9 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <!-- Additional links can be added here -->
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
